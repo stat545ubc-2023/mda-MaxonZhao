@@ -1,6 +1,6 @@
 ---
 title: "Mini Data-Analysis Deliverable 1"
-output: html_document
+output: md_document
 ---
 
 # Welcome to your (maybe) first-ever data analysis project!
@@ -101,37 +101,41 @@ And that is exactly the first thing that you will do!
 library(dplyr)
 library(datateachr)
 
-# Exploring steam_games2 dataset
-steam_games_attributes <- list(
-  rows = nrow(steam_games),
-  columns = ncol(steam_games),
-  column_names = colnames(steam_games),
-  class_type = class(steam_games)
-)
+# Exploring steam_games2 dataset using dplyr
+steam_games_attributes <- steam_games %>%
+  summarise(
+    rows = n(),
+    columns = length(.),
+    column_names = list(names(.)),
+    class_type = list(class(.))
+  )
 
-# Exploring apt_buildings3 dataset
-apt_buildings_attributes <- list(
-  rows = nrow(apt_buildings),
-  columns = ncol(apt_buildings),
-  column_names = colnames(apt_buildings),
-  class_type = class(apt_buildings)
-)
+# Exploring apt_buildings3 dataset using dplyr
+apt_buildings_attributes <- apt_buildings %>%
+  summarise(
+    rows = n(),
+    columns = length(.),
+    column_names = list(names(.)),
+    class_type = list(class(.))
+  )
 
-# Exploring vancouver_trees dataset
-vancouver_trees_attributes <- list(
-  rows = nrow(vancouver_trees),
-  columns = ncol(vancouver_trees),
-  column_names = colnames(vancouver_trees),
-  class_type = class(vancouver_trees)
-)
+# Exploring vancouver_trees dataset using dplyr
+vancouver_trees_attributes <- vancouver_trees %>%
+  summarise(
+    rows = n(),
+    columns = length(.),
+    column_names = list(names(.)),
+    class_type = list(class(.))
+  )
 
-# Exploring cancer_sample dataset
-cancer_sample_attributes <- list(
-  rows = nrow(cancer_sample),
-  columns = ncol(cancer_sample),
-  column_names = colnames(cancer_sample),
-  class_type = class(cancer_sample)
-)
+# Exploring cancer_sample dataset using dplyr
+cancer_sample_attributes <- cancer_sample %>%
+  summarise(
+    rows = n(),
+    columns = length(.),
+    column_names = list(names(.)),
+    class_type = list(class(.))
+  )
 
 # Displaying the attributes for each dataset
 list(
@@ -140,6 +144,7 @@ list(
   vancouver_trees = vancouver_trees_attributes,
   cancer_sample = cancer_sample_attributes
 )
+
 ```
 
 <!----------------------------------------------------------------------------->
@@ -148,7 +153,9 @@ list(
 
 <!-------------------------- Start your work below ---------------------------->
 
-I decided to choose vancouver_trees because its column names are generally more straightforwared and easy to understand and work with
+```{r}
+#I decided to choose vancouver_trees because its column names are generally more straightforwared and easy to understand and work with
+```
 
 <!----------------------------------------------------------------------------->
 
@@ -156,7 +163,9 @@ I decided to choose vancouver_trees because its column names are generally more 
 
 <!-------------------------- Start your work below ---------------------------->
 
-Exploring the Relationship between Tree Diameter and Latitude in Vancouver
+```{r}
+#Exploring the Relationship between Tree Diameter and Latitude in Vancouver
+```
 
 <!----------------------------------------------------------------------------->
 

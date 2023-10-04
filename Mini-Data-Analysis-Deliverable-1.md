@@ -165,37 +165,41 @@ comments outside of the code chunk?
     library(dplyr)
     library(datateachr)
 
-    # Exploring steam_games2 dataset
-    steam_games_attributes <- list(
-      rows = nrow(steam_games),
-      columns = ncol(steam_games),
-      column_names = colnames(steam_games),
-      class_type = class(steam_games)
-    )
+    # Exploring steam_games2 dataset using dplyr
+    steam_games_attributes <- steam_games %>%
+      summarise(
+        rows = n(),
+        columns = length(.),
+        column_names = list(names(.)),
+        class_type = list(class(.))
+      )
 
-    # Exploring apt_buildings3 dataset
-    apt_buildings_attributes <- list(
-      rows = nrow(apt_buildings),
-      columns = ncol(apt_buildings),
-      column_names = colnames(apt_buildings),
-      class_type = class(apt_buildings)
-    )
+    # Exploring apt_buildings3 dataset using dplyr
+    apt_buildings_attributes <- apt_buildings %>%
+      summarise(
+        rows = n(),
+        columns = length(.),
+        column_names = list(names(.)),
+        class_type = list(class(.))
+      )
 
-    # Exploring vancouver_trees dataset
-    vancouver_trees_attributes <- list(
-      rows = nrow(vancouver_trees),
-      columns = ncol(vancouver_trees),
-      column_names = colnames(vancouver_trees),
-      class_type = class(vancouver_trees)
-    )
+    # Exploring vancouver_trees dataset using dplyr
+    vancouver_trees_attributes <- vancouver_trees %>%
+      summarise(
+        rows = n(),
+        columns = length(.),
+        column_names = list(names(.)),
+        class_type = list(class(.))
+      )
 
-    # Exploring cancer_sample dataset
-    cancer_sample_attributes <- list(
-      rows = nrow(cancer_sample),
-      columns = ncol(cancer_sample),
-      column_names = colnames(cancer_sample),
-      class_type = class(cancer_sample)
-    )
+    # Exploring cancer_sample dataset using dplyr
+    cancer_sample_attributes <- cancer_sample %>%
+      summarise(
+        rows = n(),
+        columns = length(.),
+        column_names = list(names(.)),
+        class_type = list(class(.))
+      )
 
     # Displaying the attributes for each dataset
     list(
@@ -206,108 +210,28 @@ comments outside of the code chunk?
     )
 
     ## $steam_games
-    ## $steam_games$rows
-    ## [1] 40833
-    ## 
-    ## $steam_games$columns
-    ## [1] 21
-    ## 
-    ## $steam_games$column_names
-    ##  [1] "id"                       "url"                     
-    ##  [3] "types"                    "name"                    
-    ##  [5] "desc_snippet"             "recent_reviews"          
-    ##  [7] "all_reviews"              "release_date"            
-    ##  [9] "developer"                "publisher"               
-    ## [11] "popular_tags"             "game_details"            
-    ## [13] "languages"                "achievements"            
-    ## [15] "genre"                    "game_description"        
-    ## [17] "mature_content"           "minimum_requirements"    
-    ## [19] "recommended_requirements" "original_price"          
-    ## [21] "discount_price"          
-    ## 
-    ## $steam_games$class_type
-    ## [1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" 
-    ## 
+    ## # A tibble: 1 × 4
+    ##    rows columns column_names class_type
+    ##   <int>   <int> <list>       <list>    
+    ## 1 40833      21 <chr [21]>   <chr [4]> 
     ## 
     ## $apt_buildings
-    ## $apt_buildings$rows
-    ## [1] 3455
-    ## 
-    ## $apt_buildings$columns
-    ## [1] 37
-    ## 
-    ## $apt_buildings$column_names
-    ##  [1] "id"                               "air_conditioning"                
-    ##  [3] "amenities"                        "balconies"                       
-    ##  [5] "barrier_free_accessibilty_entr"   "bike_parking"                    
-    ##  [7] "exterior_fire_escape"             "fire_alarm"                      
-    ##  [9] "garbage_chutes"                   "heating_type"                    
-    ## [11] "intercom"                         "laundry_room"                    
-    ## [13] "locker_or_storage_room"           "no_of_elevators"                 
-    ## [15] "parking_type"                     "pets_allowed"                    
-    ## [17] "prop_management_company_name"     "property_type"                   
-    ## [19] "rsn"                              "separate_gas_meters"             
-    ## [21] "separate_hydro_meters"            "separate_water_meters"           
-    ## [23] "site_address"                     "sprinkler_system"                
-    ## [25] "visitor_parking"                  "ward"                            
-    ## [27] "window_type"                      "year_built"                      
-    ## [29] "year_registered"                  "no_of_storeys"                   
-    ## [31] "emergency_power"                  "non-smoking_building"            
-    ## [33] "no_of_units"                      "no_of_accessible_parking_spaces" 
-    ## [35] "facilities_available"             "cooling_room"                    
-    ## [37] "no_barrier_free_accessible_units"
-    ## 
-    ## $apt_buildings$class_type
-    ## [1] "tbl_df"     "tbl"        "data.frame"
-    ## 
+    ## # A tibble: 1 × 4
+    ##    rows columns column_names class_type
+    ##   <int>   <int> <list>       <list>    
+    ## 1  3455      37 <chr [37]>   <chr [3]> 
     ## 
     ## $vancouver_trees
-    ## $vancouver_trees$rows
-    ## [1] 146611
-    ## 
-    ## $vancouver_trees$columns
-    ## [1] 20
-    ## 
-    ## $vancouver_trees$column_names
-    ##  [1] "tree_id"            "civic_number"       "std_street"        
-    ##  [4] "genus_name"         "species_name"       "cultivar_name"     
-    ##  [7] "common_name"        "assigned"           "root_barrier"      
-    ## [10] "plant_area"         "on_street_block"    "on_street"         
-    ## [13] "neighbourhood_name" "street_side_name"   "height_range_id"   
-    ## [16] "diameter"           "curb"               "date_planted"      
-    ## [19] "longitude"          "latitude"          
-    ## 
-    ## $vancouver_trees$class_type
-    ## [1] "tbl_df"     "tbl"        "data.frame"
-    ## 
+    ## # A tibble: 1 × 4
+    ##     rows columns column_names class_type
+    ##    <int>   <int> <list>       <list>    
+    ## 1 146611      20 <chr [20]>   <chr [3]> 
     ## 
     ## $cancer_sample
-    ## $cancer_sample$rows
-    ## [1] 569
-    ## 
-    ## $cancer_sample$columns
-    ## [1] 32
-    ## 
-    ## $cancer_sample$column_names
-    ##  [1] "ID"                      "diagnosis"              
-    ##  [3] "radius_mean"             "texture_mean"           
-    ##  [5] "perimeter_mean"          "area_mean"              
-    ##  [7] "smoothness_mean"         "compactness_mean"       
-    ##  [9] "concavity_mean"          "concave_points_mean"    
-    ## [11] "symmetry_mean"           "fractal_dimension_mean" 
-    ## [13] "radius_se"               "texture_se"             
-    ## [15] "perimeter_se"            "area_se"                
-    ## [17] "smoothness_se"           "compactness_se"         
-    ## [19] "concavity_se"            "concave_points_se"      
-    ## [21] "symmetry_se"             "fractal_dimension_se"   
-    ## [23] "radius_worst"            "texture_worst"          
-    ## [25] "perimeter_worst"         "area_worst"             
-    ## [27] "smoothness_worst"        "compactness_worst"      
-    ## [29] "concavity_worst"         "concave_points_worst"   
-    ## [31] "symmetry_worst"          "fractal_dimension_worst"
-    ## 
-    ## $cancer_sample$class_type
-    ## [1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame"
+    ## # A tibble: 1 × 4
+    ##    rows columns column_names class_type
+    ##   <int>   <int> <list>       <list>    
+    ## 1   569      32 <chr [32]>   <chr [4]>
 
 <!----------------------------------------------------------------------------->
 
@@ -317,8 +241,7 @@ to choose this one? Briefly explain your choice below.
 
 <!-------------------------- Start your work below ---------------------------->
 
-I decided to choose vancouver\_trees because its column names are
-generally more straightforwared and easy to understand and work with
+    #I decided to choose vancouver_trees because its column names are generally more straightforwared and easy to understand and work with
 
 <!----------------------------------------------------------------------------->
 
@@ -331,8 +254,7 @@ dataset. Note it down below.
 
 <!-------------------------- Start your work below ---------------------------->
 
-Exploring the Relationship between Tree Diameter and Latitude in
-Vancouver
+    #Exploring the Relationship between Tree Diameter and Latitude in Vancouver
 
 <!----------------------------------------------------------------------------->
 
@@ -413,7 +335,7 @@ sufficient comments for a reader to understand your reasoning and code.
       scale_x_continuous(limits=c(0, 50)) +  # Adjust these values as needed
       theme_minimal()
 
-![](Mini-Data-Analysis-Deliverable-1_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![](Mini-Data-Analysis-Deliverable-1_files/figure-markdown_strict/unnamed-chunk-5-1.png)
 
     # 2. Create a new variable based on other variables in your data (only if it makes sense)
     # Reason for choosing: Calculating the age of trees based on the planting date can provide a deeper understanding of the tree population's maturity in Vancouver. 
@@ -453,7 +375,7 @@ sufficient comments for a reader to understand your reasoning and code.
            x = "Variables",
            y = "Number of Missing Values")
 
-![](Mini-Data-Analysis-Deliverable-1_files/figure-markdown_strict/unnamed-chunk-3-2.png)
+![](Mini-Data-Analysis-Deliverable-1_files/figure-markdown_strict/unnamed-chunk-5-2.png)
 
     # 4.Explore the relationship between 2 variables in a plot.
     # Reason for choosing: Understanding the relationship between tree diameter and the date they were planted can provide insights into the growth patterns over time.
@@ -465,7 +387,7 @@ sufficient comments for a reader to understand your reasoning and code.
       theme_minimal() +
       ylim(0, 100)
 
-![](Mini-Data-Analysis-Deliverable-1_files/figure-markdown_strict/unnamed-chunk-3-3.png)
+![](Mini-Data-Analysis-Deliverable-1_files/figure-markdown_strict/unnamed-chunk-5-3.png)
 
 <!----------------------------------------------------------------------------->
 
