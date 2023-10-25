@@ -1,6 +1,6 @@
 # Repository Orientation:
 
-This repository contains the first deliverable for a Mini Data-Analysis project. The analysis focuses on the `vancouver_trees` 
+This repository contains the second deliverable for a Mini Data-Analysis project. The analysis focuses on the `vancouver_trees` 
 dataset, exploring various facets of tree data in Vancouver, such as species distribution, planting patterns, and relationships with urban infrastructure.
 
 ## Engaging with the Repository
@@ -16,3 +16,7 @@ The corresponding knitted .md file provides a readable report with outputs, plot
 ### Required Packages: 
 Before running the Rmd file, ensure you have the datateachr, dplyr, and ggplot2 packages installed.
 Instructions for installation are provided within the Rmd file.
+
+### Folder Structure:
+contains .rmd and .md files
+output-figures contains all figures produced from milestone 2 tasks
